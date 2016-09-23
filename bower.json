@@ -4,7 +4,7 @@
   "authors": [
     "antongorodezkiy <antongorodezkiy@gmail.com>"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "vue": "~1.0.26",
     "popper.js": "0.6.4"

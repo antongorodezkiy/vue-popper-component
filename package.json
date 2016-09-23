@@ -1,6 +1,6 @@
 {
   "name": "vue-popper-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js component for Popper.js",
   "main": "src/vue-popper.js",
   "scripts": {
