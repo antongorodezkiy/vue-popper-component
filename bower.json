@@ -1,0 +1,20 @@
+{
+  "name": "vue-popper-directive",
+  "homepage": "https://github.com/antongorodezkiy/vue-popper-directive",
+  "authors": [
+    "antongorodezkiy <antongorodezkiy@gmail.com>"
+  ],
+  "version": "0.0.1",
+  "dependencies": {
+    "vue": "~1.0.26",
+    "popper.js": "0.6.4"
+  },
+  "description": "Vue.js directive for Popper.js",
+  "main": "src/vue-popper.js",
+  "keywords": [
+    "vue",
+    "popperjs",
+    "directive"
+  ],
+  "license": "MIT"
+}
