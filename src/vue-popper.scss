@@ -5,23 +5,27 @@ $popper-background-color: gold !default;
     color: black;
     width: 320px;
     padding: 10px;
-	@include rounded(3px);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 	z-index: 1100;
-	@include box-shadow(1px 1px 0px rgba(0, 0, 0, 0.1));
+	-webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   
-  .popper-close {
-    position: absolute;
-    top: 2px;
+	.popper-close {
+		position: absolute;
+		top: 2px;
 		right: 4px;
 		color: black;
-    background: transparent;
-    border: none;
-    
-    &:active,
-    &:focus {
-      outline: none;
-    }
-  }
+		background: transparent;
+		border: none;
+		
+		&:active,
+		&:focus {
+			outline: none;
+		}
+	}
 	
 	.popper__arrow {
 		width: 0;
