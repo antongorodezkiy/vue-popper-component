@@ -8,13 +8,33 @@ const
 
 let VuePopper = {
   
-  props: ['placement', 'content', 'closeButton'],
+  props: {
+    showPopper: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    placement: {
+      type: String,
+      required: false,
+      default: 'top'
+    },
+    content: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    closeButton: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   
   data() {
     return {
       popperId: null,
-      popper: null,
-      showPopper: false
+      popper: null
     }
   },
   
@@ -52,11 +72,17 @@ let VuePopper = {
         {
           content: (
             this.content + (this.closeButton
-              ? '<button data-uuid="'+this.popperId+'" type="button" class="c-b t r pos-a btn btn-link js-popper-close"><i class="fa fa-times"></i></button>'
+              ? `<button
+                  data-uuid="${this.popperId}"
+                  type="button"
+                  class="js-popper-close popper-close">
+                    <i class="fa fa-times"></i>
+                </button>`
               : ''
             )
           ) || '',
-          contentType: 'html'
+          contentType: 'html',
+          classNames: ['vue-popper-component']
         },
         {
           placement: this.placement || 'bottom',

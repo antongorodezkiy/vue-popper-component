@@ -1,26 +1,26 @@
 {
-  "name": "vue-popper-directive",
+  "name": "vue-popper-component",
   "version": "0.0.1",
-  "description": "Vue.js directive for Popper.js",
+  "description": "Vue.js component for Popper.js",
   "main": "src/vue-popper.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antongorodezkiy/vue-popper-directive.git"
+    "url": "git+https://github.com/antongorodezkiy/vue-popper-component.git"
   },
   "keywords": [
     "vue",
     "popperjs",
-    "directive"
+    "component"
   ],
   "author": "antongorodezkiy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antongorodezkiy/vue-popper-directive/issues"
+    "url": "https://github.com/antongorodezkiy/vue-popper-component/issues"
   },
-  "homepage": "https://github.com/antongorodezkiy/vue-popper-directive#readme",
+  "homepage": "https://github.com/antongorodezkiy/vue-popper-component#readme",
   "dependencies": {
     "vue": "^1.0.25",
     "popper.js": "0.6.4"
