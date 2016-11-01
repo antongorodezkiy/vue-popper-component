@@ -4,13 +4,13 @@
   "authors": [
     "antongorodezkiy <antongorodezkiy@gmail.com>"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "vue": "~1.0.26",
     "popper.js": "0.6.4"
   },
   "description": "Vue.js component for Popper.js",
-  "main": "src/vue-popper.js",
+  "main": "dist/vue-popper.js",
   "keywords": [
     "vue",
     "popperjs",
