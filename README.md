@@ -39,4 +39,4 @@ new Vue({
 </popper>
 ```
 
-For other demos please check `demo` folder.
+For other demos please check [`demo`](./demo) folder.
