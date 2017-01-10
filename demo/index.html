@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="demo.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container" id="app">
+
+		<div class="starter-template">
+			<popper
+				inline-template="true"
+				:show-popper="false"
+				content='Lorem ipsum dolor'
+				placement="left"
+				close-button="">
+				<a @click.prevent="showPopper = !showPopper" href="#">
+					<h1 class="center">Popover example (click on me)</h1>
+				</a>
+			</popper>
+			
+		  
+		  <p class="lead">Use this document as a way to quickly start any new project.</p>
+		</div>
+	  
+		<popper
+			inline-template="true"
+			:show-popper.sync="showSecondPopover"
+			content='<h4>Header</h4>
+				<p>Lorem ipsum</p>
+				<a target="_blank" href="/">Go to page</a>'
+			placement="right"
+			close-button="x">
+			<span @click.prevent="showPopper = !showPopper" class="btn btn-primary">
+				?
+			</span>
+		</popper>
+		
+		<hr />
+		
+		<div>
+			<button class="btn btn-warning" @click.prevent="hideSecondPopover">
+				Close second popover
+			</button>
+		</div>
+		
+		<hr />
+		
+		<div>
+			<popper
+				inline-template="true"
+				:show-popper="false"
+				content='Fantastic!'
+				placement="top"
+				close-button="Close this">
+				<button @click.prevent="showPopper = !showPopper" class="btn btn-info">
+					Show third popover
+				</button>
+			</popper>
+		</div>
+
+    </div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="demo.js"></script>
+</body>
+</html>

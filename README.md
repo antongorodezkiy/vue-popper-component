@@ -3,11 +3,25 @@ vue-popper-component
 
 Simple Vue.js component for [Popper.js](https://popper.js.org/) plugin.
 
+### Dependencies:
+
+- Vue 1.*
+- Popper.js 1.*
 
 ### Usage:
 
 ```javascript
-require('vue-popper-component');
+const
+	Vue = require('vue'),
+  VuePopper = require('vue-popper-component');
+	
+new Vue({
+  el: '#app',
+  
+  components: {
+    'popper': VuePopper
+  }
+});
 ```
 
 ```html
@@ -18,12 +32,11 @@ require('vue-popper-component');
 		<p>Lorem ipsum</p>
 		<a target="_blank" href="/">Go to page</a>'
 	placement="right"
-	:close-button="true">
-	<a
-		@click.prevent="showPopper = !showPopper"
-		href="#"
-		class="color-orange d-ib">
-		<span class="fa fa-question-circle"></span>
-	</a>
+	close-button="fa fa-times">
+	<span @click.prevent="showPopper = !showPopper">
+		?
+	</span>
 </popper>
 ```
+
+For other demos please check `demo` folder.

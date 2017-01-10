@@ -1,13 +1,13 @@
 'use strict';
 
 /**
- * Vue.js directive for Popper.js
+ * Vue.js component for Popper.js
  * By antongorodezkiy
  */
 
 var Popper = require('popper.js');
 
-var VuePopper = {
+module.exports = {
 
   props: {
     showPopper: {
@@ -26,9 +26,9 @@ var VuePopper = {
       default: ''
     },
     closeButton: {
-      type: Boolean,
+      type: String,
       required: false,
-      default: false
+      default: null
     }
   },
 
@@ -41,7 +41,7 @@ var VuePopper = {
   ready: function ready() {
     var _this = this;
 
-    Vue.nextTick(function () {
+    this.$nextTick(function () {
       if (_this.showPopper) {
         _this.initPopper();
       }
@@ -55,7 +55,7 @@ var VuePopper = {
 
       if (!!this.showPopper) {
         this.destroyPopper();
-        Vue.nextTick(function () {
+        this.$nextTick(function () {
           _this2.initPopper();
         });
       } else if (this.popper) {
@@ -74,20 +74,23 @@ var VuePopper = {
       var _this3 = this;
 
       this.popperId = this.uuid4();
-      this.popper = new Popper(this.$el, {
-        content: this.content + (this.closeButton ? '<button\n                  data-uuid="' + this.popperId + '"\n                  type="button"\n                  class="js-popper-close popper-close">\n                    <i class="fa fa-times"></i>\n                </button>' : '') || '',
-        contentType: 'html',
-        classNames: ['vue-popper-component']
-      }, {
+
+      var popperElement = document.createElement('div');
+      popperElement.className = 'vue-popper-component';
+      popperElement.innerHTML = this.content + (this.closeButton ? '<button\n            id="' + this.popperId + '-close"\n            type="button"\n            class="js-popper-close popper-close">\n              ' + this.closeButton + '\n          </button>' : '') + '<div class="popper__arrow" x-arrow></div>';
+
+      document.getElementsByTagName('body')[0].appendChild(popperElement);
+
+      this.popper = new Popper(this.$el, popperElement, {
         placement: this.placement || 'bottom',
         removeOnDestroy: true
       });
 
-      $('body').on('click', '.js-popper-close', function (e) {
-        if (_this3.popperId == $(e.currentTarget).data('uuid')) {
+      if (document.getElementById(this.popperId + '-close')) {
+        document.getElementById(this.popperId + '-close').onclick = function () {
           _this3.showPopper = false;
-        }
-      });
+        };
+      }
     },
     destroyPopper: function destroyPopper() {
       if (this.popper) {
@@ -104,11 +107,3 @@ var VuePopper = {
     }
   }
 };
-
-/*
- * Install Vue Directive if Vue is available
- */
-
-if (typeof Vue !== "undefined") {
-  Vue.component('popper', VuePopper);
-}

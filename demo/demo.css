@@ -1,0 +1,63 @@
+.vue-popper-component {
+  background: gold;
+  color: black;
+  width: 320px;
+  padding: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 1100;
+  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1); }
+  .vue-popper-component .popper-close {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    color: black;
+    background: transparent;
+    border: none; }
+    .vue-popper-component .popper-close:active, .vue-popper-component .popper-close:focus {
+      outline: none; }
+  .vue-popper-component .popper__arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: 5px; }
+  .vue-popper-component[x-placement^="top"] {
+    margin-bottom: 5px; }
+    .vue-popper-component[x-placement^="top"] .popper__arrow {
+      border-width: 5px 5px 0 5px;
+      border-color: gold transparent transparent transparent;
+      bottom: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0; }
+  .vue-popper-component[x-placement^="bottom"] {
+    margin-top: 5px; }
+    .vue-popper-component[x-placement^="bottom"] .popper__arrow {
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent gold transparent;
+      top: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0; }
+  .vue-popper-component[x-placement^="right"] {
+    margin-left: 5px; }
+    .vue-popper-component[x-placement^="right"] .popper__arrow {
+      border-width: 5px 5px 5px 0;
+      border-color: transparent gold transparent transparent;
+      left: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0; }
+  .vue-popper-component[x-placement^="left"] {
+    margin-right: 5px; }
+    .vue-popper-component[x-placement^="left"] .popper__arrow {
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent gold;
+      right: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0; }
