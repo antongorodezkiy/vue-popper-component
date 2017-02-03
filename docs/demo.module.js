@@ -10,7 +10,10 @@ new Vue({
   },
   
   data: {
-    showSecondPopover: true
+    showPopper1: true,
+    showPopper2: false,
+    showPopper3: false,
+    showPopper4: false
   },
   
   methods: {

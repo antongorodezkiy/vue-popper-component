@@ -1,13 +1,14 @@
 {
   "name": "vue-popper-component",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Vue.js component for Popper.js",
-  "main": "dist/vue-popper.js",
+  "main": "dist/vue-popper+popperjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node-sass src/vue-popper.scss dist/vue-popper.css && babel src --presets babel-preset-es2015 --out-dir dist",
-    "bundle": "browserify dist/vue-popper.js > dist/vue-popper.bundle.js",
-    "demo": "npm run build && browserify demo/demo.module.js > demo/demo.js && cp dist/vue-popper.css demo/demo.css"
+    "build-sass": "node-sass src/vue-popper.scss dist/vue-popper.css",
+    "build-vue": "NODE_ENV=production browserify --standalone VuePopper -e src/VuePopper.vue -o dist/vue-popper+popperjs.js && browserify --standalone VuePopper --external popper.js -e src/VuePopper.vue -o dist/vue-popper.js",
+    "build": "NODE_ENV=production npm run build-vue && npm run build-sass",
+    "docs": "NODE_ENV=production browserify -e docs/demo.module.js -o docs/demo.js && cp dist/vue-popper.css docs/demo.css"
   },
   "repository": {
     "type": "git",
@@ -30,14 +31,19 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.22.1",
+    "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-runtime": "^6.22.0",
     "babelify": "^7.3.0",
     "browserify": "^13.3.0",
-    "node-sass": "^4.2.0"
+    "node-sass": "^4.2.0",
+    "vueify": "8.*"
   },
   "browserify": {
     "transform": [
       [
+        "vueify",
         "babelify",
         {
           "presets": [

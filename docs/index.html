@@ -7,67 +7,245 @@
   <title>Demo</title>
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" />
   <link href="demo.css" rel="stylesheet" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
-	<div class="container" id="app">
+  <a target="_blank" href="https://github.com/antongorodezkiy/vue-popper-component"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  
+  <br />
+  <br />
+	<div class="container" id="app"><div>
+    
+    <div class="well text-center">
+      <h1>vue-popper-component
+        <!-- Place this tag where you want the button to render. -->
+        <a class="github-button" href="https://github.com/antongorodezkiy/vue-popper-component" data-icon="octicon-star" data-style="mega" data-count-href="/antongorodezkiy/vue-popper-component/stargazers" data-count-api="/repos/antongorodezkiy/vue-popper-component#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star antongorodezkiy/vue-popper-component on GitHub">Star</a>
+      </h1>
+      <h2>Simple Vue.js component for <a href="https://popper.js.org/" target="_blank">Popper.js</a> plugin.</h2>
+      <h3>It's a demo!</h3>
+    </div>
 
-		<div class="starter-template">
-			<popper
-				inline-template="true"
-				:show-popper="false"
-				content='Lorem ipsum dolor'
-				placement="left"
-				close-button="">
-				<a @click.prevent="showPopper = !showPopper" href="#">
-					<h1 class="center">Popover example (click on me)</h1>
-				</a>
-			</popper>
-			
-		  
-		  <p class="lead">Use this document as a way to quickly start any new project.</p>
+
+
+
+		<div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Popover with <b>plain</b> <code>content</code> and <b>plain</b> <code>close-button</code>
+        </h2>
+      </div>
+			<div class="col-md-6 text-center">
+        <br /><br /><br /><br /><br />
+<div style="display: inline-block">
+  
+  <popper
+    :show-popper.sync="showPopper1"
+    content="Lorem ipsum dolor"
+    placement="right"
+    close-button="Close me!">
+      <a @click.prevent="showPopper1 = !showPopper1" href="#">
+        Click to open popover on the right
+      </a>
+  </popper>
+</div>
+      </div>
+			<div class="col-md-6">
+<pre>
+  <code class="language-markup">
+  &lt;popper
+    :show-popper.sync=&quot;showPopper1&quot;
+    content=&quot;Lorem ipsum dolor&quot;
+    placement=&quot;right&quot;
+    close-button=&quot;Close me!&quot;&gt;
+      &lt;a @click.prevent=&quot;showPopper1 = !showPopper1&quot; href=&quot;#&quot;&gt;
+        Click to open popover on the right
+      &lt;/a&gt;
+  &lt;/popper&gt;
+  </code>
+</pre>
+      </div>
 		</div>
 	  
-		<popper
-			inline-template="true"
-			:show-popper.sync="showSecondPopover"
-			content='<h4>Header</h4>
-				<p>Lorem ipsum</p>
-				<a target="_blank" href="/">Go to page</a>'
-			placement="right"
-			close-button="x">
-			<span @click.prevent="showPopper = !showPopper" class="btn btn-primary">
-				?
-			</span>
-		</popper>
-		
-		<hr />
-		
-		<div>
-			<button class="btn btn-warning" @click.prevent="hideSecondPopover">
-				Close second popover
-			</button>
+    <hr />
+    
+    
+    
+    
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Popover with <b>plain</b> <code>content</code> and <b>without</b> <code>close-button</code>
+        </h2>
+      </div>
+			<div class="col-md-6 text-right">
+        <br /><br /><br /><br /><br />
+<div style="display: inline-block">
+  <popper
+    :show-popper.sync="showPopper2"
+    content="Lorem ipsum dolor"
+    placement="left"
+    close-button="">
+      <a @click.prevent="showPopper2 = !showPopper2" href="#">
+        Click to open popover on the left
+      </a>
+  </popper>
+</div>
+      </div>
+			<div class="col-md-6">
+<pre>
+  <code class="language-markup">
+  &lt;popper
+    :show-popper.sync=&quot;showPopper2&quot;
+    content=&quot;Lorem ipsum dolor&quot;
+    placement=&quot;left&quot;
+    close-button=&quot;&quot;&gt;
+      &lt;a @click.prevent=&quot;showPopper2 = !showPopper2&quot; href=&quot;#&quot;&gt;
+        Click to open popover on the left
+      &lt;/a&gt;
+  &lt;/popper&gt;
+  </code>
+</pre>
+      </div>
 		</div>
-		
-		<hr />
-		
-		<div>
-			<popper
-				inline-template="true"
-				:show-popper="false"
-				content='Fantastic!'
-				placement="top"
-				close-button="Close this">
-				<button @click.prevent="showPopper = !showPopper" class="btn btn-info">
-					Show third popover
-				</button>
-			</popper>
+    
+    <hr />
+    
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Popover with <b>plain</b> <code>content</code> and <b>html</b> <code>close-button</code> in the slot
+        </h2>
+      </div>
+			<div class="col-md-6 text-center">
+        <br /><br /><br /><br /><br />
+<div style="display: inline-block">
+  <popper
+    :show-popper.sync="showPopper3"
+    content="Lorem ipsum dolor"
+    placement="top"
+    close-button="1">
+    
+      <div slot="close-button">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+    
+      <button class="btn btn-default" @click.prevent="showPopper3 = !showPopper3">
+        Click to open popover on the top
+      </button>
+  </popper>
+</div>
+      </div>
+			<div class="col-md-6">
+<pre>
+  <code class="language-markup">
+  &lt;popper
+    :show-popper.sync=&quot;showPopper3&quot;
+    content=&quot;Lorem ipsum dolor&quot;
+    placement=&quot;top&quot;
+    close-button=&quot;1&quot;&gt;
+    
+      &lt;div slot=&quot;close-button&quot;&gt;
+        &lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    
+      &lt;button class=&quot;btn btn-default&quot; @click.prevent=&quot;showPopper3 = !showPopper3&quot;&gt;
+        Click to open popover on the top
+      &lt;/button&gt;
+  &lt;/popper&gt;
+  </code>
+</pre>
+      </div>
+		</div>
+    
+    <hr />
+    
+    
+    
+    
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Popover with <b>html</b> <code>content</code> in the slot and <b>html</b> <code>close-button</code> in the slot
+        </h2>
+      </div>
+			<div class="col-md-6 text-center">
+        <br /><br /><br /><br /><br />
+<div style="display: inline-block">
+  <popper
+    :show-popper.sync="showPopper4"
+    content="Lorem ipsum dolor"
+    placement="top"
+    close-button="1">
+    
+      <div slot="close-button">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+      
+      <div slot="content">
+        <h2><a href="https://github.com/antongorodezkiy/vue-popper-component" target="_blank"><i class="glyphicon glyphicon-star"></i></a> <b>us</b> <i>on</i> <u>github</u>!</h2>
+        <a @click.prevent="showPopper4 = false" href="#">Close this popover from the content!</a>
+      </div>
+    
+      <button class="btn btn-default" @click.prevent="showPopper4 = !showPopper4">
+        Click to open popover on the bottom
+      </button>
+  </popper>
+</div>
+<br />
+<br />
+<br />
+<div>
+  <button class="btn btn-default" @click.prevent="showPopper4 = !showPopper4">
+    Trigger last popover from the outside
+  </button>
+</div>
+      </div>
+			<div class="col-md-6">
+<pre>
+  <code class="language-markup">
+  &lt;popper
+    :show-popper.sync=&quot;showPopper4&quot;
+    content=&quot;Lorem ipsum dolor&quot;
+    placement=&quot;top&quot;
+    close-button=&quot;1&quot;&gt;
+    
+      &lt;div slot=&quot;close-button&quot;&gt;
+        &lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      
+      &lt;div slot=&quot;content&quot;&gt;
+        &lt;h2&gt;&lt;a href=&quot;https://github.com/antongorodezkiy/vue-popper-component&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-star&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;b&gt;us&lt;/b&gt; &lt;i&gt;on&lt;/i&gt; &lt;u&gt;github&lt;/u&gt;!&lt;/h2&gt;
+        &lt;a @click.prevent=&quot;showPopper4 = false&quot; href=&quot;#&quot;&gt;Close this popover from the content!&lt;/a&gt;
+      &lt;/div&gt;
+    
+      &lt;button class=&quot;btn btn-default&quot; @click.prevent=&quot;showPopper4 = !showPopper4&quot;&gt;
+        Click to open popover on the bottom
+      &lt;/button&gt;
+  &lt;/popper&gt;
+
+  &lt;button class=&quot;btn btn-default&quot; @click.prevent=&quot;showPopper4 = !showPopper4&quot;&gt;
+    Trigger last popover from the outside
+  &lt;/button&gt;
+  </code>
+</pre>
+      </div>
 		</div>
 
-    </div>
+  </div></div>
+  
+  <br />
+  <br />
+  <br />
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 	<script src="demo.js"></script>
 </body>
 </html>
