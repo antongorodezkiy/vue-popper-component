@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/antongorodezkiy/vue-popper-component#readme",
   "dependencies": {
-    "vue": "1.*"
     "popper.js": "^1.0.8",
+    "vue": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

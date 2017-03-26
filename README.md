@@ -9,7 +9,7 @@ https://antongorodezkiy.github.io/vue-popper-component/
 
 ### Dependencies:
 
-- Vue 1.*
+- Vue 2.*
 - Popper.js 1.*
 
 ### Usage:
