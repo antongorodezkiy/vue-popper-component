@@ -1,6 +1,13 @@
 <script>
 const Popper = require('popper.js')
 
+var extend = function (to, from) {
+  for (const key in from) {
+    to[key] = from[key]
+  }
+  return to
+}
+
 module.exports = {
   props: {
     showPopper: {
@@ -22,6 +29,11 @@ module.exports = {
       type: String,
       required: false,
       default: null
+    },
+    popperOptions: {
+      type: Object,
+      required: false,
+      default: {}
     }
   },
   data () {
@@ -55,10 +67,10 @@ module.exports = {
       this.popper = new Popper(
         this.$el,
         this.$el.querySelector('.vue-popper-component'),
-        {
+        extend({
           placement: this.placement || 'bottom',
           removeOnDestroy: true
-        }
+        }, this.popperOptions)
       )
     },
     closePopper () {
