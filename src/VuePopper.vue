@@ -35,7 +35,7 @@ module.exports = {
     }
   },
 
-  ready() {
+  mounted () {
     this.$nextTick(() => {
       if (this.showPopper) {
         this.initPopper();
@@ -70,6 +70,9 @@ module.exports = {
       );
     },
 
+    closePopper () {
+      this.$emit('close-popper')
+    },
     destroyPopper() {
       if (this.popper) {
         this.popper.destroy();
@@ -93,7 +96,7 @@ module.exports = {
     <div v-if="showPopper" :id="'vue-popper-'+popperId" class="vue-popper-component">
       <button
         v-if="closeButton"
-        @click="showPopper = false"
+        @click="closePopper()"
         :id="'vue-popper-'+popperId+'-close'"
         type="button"
         class="js-popper-close popper-close">

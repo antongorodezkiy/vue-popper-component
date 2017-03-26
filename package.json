@@ -38,7 +38,10 @@
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "node-sass": "^4.5.1",
-    "vueify": "8.*"
+    "vueify": "https://github.com/thomas07vt/vueify.git#issues/138-browserify-transformations-fix"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
   },
   "browserify": {
     "transform": [

@@ -2069,7 +2069,7 @@ module.exports = {
       popper: null
     };
   },
-  ready: function ready() {
+  mounted: function mounted() {
     var _this = this;
 
     this.$nextTick(function () {
@@ -2105,6 +2105,9 @@ module.exports = {
         removeOnDestroy: true
       });
     },
+    closePopper: function closePopper() {
+      this.$emit('close-popper');
+    },
     destroyPopper: function destroyPopper() {
       if (this.popper) {
         this.popper.destroy();
@@ -2122,7 +2125,9 @@ module.exports = {
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "<div><slot></slot><div v-if=showPopper :id=\"'vue-popper-'+popperId\" class=vue-popper-component><button v-if=closeButton @click=\"showPopper = false\" :id=\"'vue-popper-'+popperId+'-close'\" type=button class=\"js-popper-close popper-close\"><slot name=close-button>{{ closeButton }}</slot></button><slot name=content>{{ content }}</slot><div class=popper__arrow x-arrow=\"\"></div></div></div>"
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default"),_vm._v(" "),(_vm.showPopper)?_c('div',{staticClass:"vue-popper-component",attrs:{"id":'vue-popper-'+_vm.popperId}},[(_vm.closeButton)?_c('button',{staticClass:"js-popper-close popper-close",attrs:{"id":'vue-popper-'+_vm.popperId+'-close',"type":"button"},on:{"click":function($event){_vm.closePopper()}}},[_vm._t("close-button",[_vm._v(_vm._s(_vm.closeButton))])],2):_vm._e(),_vm._v(" "),_vm._t("content",[_vm._v(_vm._s(_vm.content))]),_vm._v(" "),_c('div',{staticClass:"popper__arrow",attrs:{"x-arrow":""}})],2):_vm._e()],2)}
+__vue__options__.staticRenderFns = []
 
 },{"popper.js":1}]},{},[2])(2)
 });
