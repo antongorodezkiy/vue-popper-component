@@ -14,11 +14,5 @@ new Vue({
     showPopper2: false,
     showPopper3: false,
     showPopper4: false
-  },
-
-  methods: {
-    hideSecondPopover() {
-      this.showSecondPopover = false;
-    }
   }
 })

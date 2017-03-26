@@ -29,52 +29,45 @@
         <h3>It's a demo!</h3>
       </div>
 
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Popover with <b>plain</b> <code>content</code> and <b>plain</b> <code>close-button</code></h2>
+        </div>
+        <div class="col-md-6 text-center">
+          <br /><br /><br /><br /><br />
+          <div style="display: inline-block">
+            <popper
+              :show-popper="showPopper1"
+              content="Lorem ipsum dolor"
+              placement="right"
+              v-on:close-popper="showPopper1 = false"
+              close-button="Close me!">
+                <a @click.prevent="showPopper1 = !showPopper1" href="#">
+                  Click to open popover on the right
+                </a>
+            </popper>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre>
+            <code class="language-markup">
+    &lt;popper
+      :show-popper=&quot;showPopper1&quot;
+      content=&quot;Lorem ipsum dolor&quot;
+      placement=&quot;right&quot;
+      v-on:close-popper=&quot;showPopper1 = false&quot;
+      close-button=&quot;Close me!&quot;&gt;
+        &lt;a @click.prevent=&quot;showPopper1 = !showPopper1&quot; href=&quot;#&quot;&gt;
+          Click to open popover on the right
+        &lt;/a&gt;
+    &lt;/popper&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
 
       <hr />
 
-		<div class="row">
-      <div class="col-xs-12">
-        <h2>
-          Popover with <b>plain</b> <code>content</code> and <b>plain</b> <code>close-button</code>
-        </h2>
-      </div>
-			<div class="col-md-6 text-center">
-        <br /><br /><br /><br /><br />
-<div style="display: inline-block">
-  
-  <popper
-    :show-popper.sync="showPopper1"
-    content="Lorem ipsum dolor"
-    placement="right"
-    close-button="Close me!">
-      <a @click.prevent="showPopper1 = !showPopper1" href="#">
-        Click to open popover on the right
-      </a>
-  </popper>
-</div>
-      </div>
-			<div class="col-md-6">
-<pre>
-  <code class="language-markup">
-  &lt;popper
-    :show-popper.sync=&quot;showPopper1&quot;
-    content=&quot;Lorem ipsum dolor&quot;
-    placement=&quot;right&quot;
-    close-button=&quot;Close me!&quot;&gt;
-      &lt;a @click.prevent=&quot;showPopper1 = !showPopper1&quot; href=&quot;#&quot;&gt;
-        Click to open popover on the right
-      &lt;/a&gt;
-  &lt;/popper&gt;
-  </code>
-</pre>
-      </div>
-		</div>
-	  
-    
-    
-    
-    
-    
     <div class="row">
       <div class="col-xs-12">
         <h2>
