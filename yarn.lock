@@ -2663,9 +2663,9 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-popper.js@1.*:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.0.1.tgz#399c3267b331f5bc5cf6429fffe57236a28baa61"
+popper.js@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.0.8.tgz#05c2cb34fdf78af99eb33337605a1384fbaffa32"
 
 postcss-calc@^5.2.0:
   version "5.3.1"
