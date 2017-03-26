@@ -16,16 +16,16 @@ https://antongorodezkiy.github.io/vue-popper-component/
 
 ```javascript
 const
-	Vue = require('vue'),
+  Vue = require('vue'),
   VuePopper = require('vue-popper-component');
-	
+
 new Vue({
   el: '#app',
-  
+
   components: {
     'popper': VuePopper
   },
-  
+
   data: {
     showPopperParentVar: true
   }
@@ -42,7 +42,6 @@ new Vue({
     <span @click.prevent="showPopperParentVar = !showPopperParentVar">
       ?
     </span>
-    
 </popper>
 ```
 
@@ -55,16 +54,16 @@ new Vue({
   placement="top"
   v-on:close-popper="showPopperParentVar = false"
   close-button="1">
-  
+
     <div slot="close-button">
       <i class="glyphicon glyphicon-remove"></i>
     </div>
-    
+
     <div slot="content">
       <h2><i class="glyphicon glyphicon-star"></i> <b>us</b> <i>on</i> <u>github</u>!</h2>
       <a @click.prevent="showPopperParentVar = false" href="#">Close this popover from the content!</a>
     </div>
-  
+
     <button class="btn btn-default" @click.prevent="showPopperParentVar = !showPopperParentVar">
       Click to open popover on the bottom
     </button>
