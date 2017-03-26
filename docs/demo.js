@@ -6,6 +6,13 @@
 
 var Popper = require('popper.js');
 
+var extend = function extend(to, from) {
+  for (var key in from) {
+    to[key] = from[key];
+  }
+  return to;
+};
+
 module.exports = {
   props: {
     showPopper: {
@@ -27,6 +34,11 @@ module.exports = {
       type: String,
       required: false,
       default: null
+    },
+    popperOptions: {
+      type: Object,
+      required: false,
+      default: {}
     }
   },
   data: function data() {
@@ -63,10 +75,10 @@ module.exports = {
   methods: {
     initPopper: function initPopper() {
       this.popperId = this.uuid4();
-      this.popper = new Popper(this.$el, this.$el.querySelector('.vue-popper-component'), {
+      this.popper = new Popper(this.$el, this.$el.querySelector('.vue-popper-component'), extend({
         placement: this.placement || 'bottom',
         removeOnDestroy: true
-      });
+      }, this.popperOptions));
     },
     closePopper: function closePopper() {
       this.$emit('close-popper');
