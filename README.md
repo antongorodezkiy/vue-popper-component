@@ -34,11 +34,11 @@ new Vue({
 
 ```html
 <popper
-	:show-popper.sync="showPopperParentVar"
-	content="Some plain text message here"
-	placement="right"
-	close-button="Close me!">
-    
+  :show-popper="showPopperParentVar"
+  content="Some plain text message here"
+  placement="right"
+  v-on:close-popper="showPopperParentVar = false"
+  close-button="Close me!">
     <span @click.prevent="showPopperParentVar = !showPopperParentVar">
       ?
     </span>
@@ -50,9 +50,10 @@ new Vue({
 
 ```html
 <popper
-  :show-popper.sync="showPopperParentVar"
+  :show-popper="showPopperParentVar"
   content="Lorem ipsum dolor"
   placement="top"
+  v-on:close-popper="showPopperParentVar = false"
   close-button="1">
   
     <div slot="close-button">
