@@ -5,7 +5,6 @@
 var Popper = require('popper.js');
 
 module.exports = {
-
   props: {
     showPopper: {
       type: Boolean,
@@ -28,7 +27,6 @@ module.exports = {
       default: null
     }
   },
-
   data: function data() {
     return {
       popperId: null,
@@ -45,7 +43,6 @@ module.exports = {
     });
   },
 
-
   watch: {
     showPopper: function showPopper(val, oldVal) {
       var _this2 = this;
@@ -57,11 +54,9 @@ module.exports = {
       }
     }
   },
-
   destroyed: function destroyed() {
     this.destroyPopper();
   },
-
 
   methods: {
     initPopper: function initPopper() {

@@ -1,10 +1,7 @@
 <script>
-
-const
-  Popper = require('popper.js');
+const Popper = require('popper.js')
 
 module.exports = {
-
   props: {
     showPopper: {
       type: Boolean,
@@ -27,39 +24,34 @@ module.exports = {
       default: null
     }
   },
-
-  data() {
+  data () {
     return {
       popperId: null,
       popper: null
     }
   },
-
   mounted () {
     this.$nextTick(() => {
       if (this.showPopper) {
         this.initPopper();
       }
-    });
+    })
   },
-
   watch: {
-    showPopper(val, oldVal) {
+    showPopper (val, oldVal) {
       if (!!this.showPopper) {
         this.$nextTick(() => {
-          this.initPopper();
-        });
+          this.initPopper()
+        })
       }
     }
   },
-
   destroyed() {
-    this.destroyPopper();
+    this.destroyPopper()
   },
-
   methods: {
-    initPopper() {
-      this.popperId = this.uuid4();
+    initPopper () {
+      this.popperId = this.uuid4()
       this.popper = new Popper(
         this.$el,
         this.$el.querySelector('.vue-popper-component'),
@@ -67,27 +59,25 @@ module.exports = {
           placement: this.placement || 'bottom',
           removeOnDestroy: true
         }
-      );
+      )
     },
-
     closePopper () {
       this.$emit('close-popper')
     },
     destroyPopper() {
       if (this.popper) {
-        this.popper.destroy();
-        this.popper = null;
+        this.popper.destroy()
+        this.popper = null
       }
     },
-
-    uuid4() {
+    uuid4 () {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
         let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8)
         return v.toString(16)
       })
     }
   }
-};
+}
 </script>
 
 <template>
