@@ -9,23 +9,23 @@ https://antongorodezkiy.github.io/vue-popper-component/
 
 ### Dependencies:
 
-- Vue 1.*
+- Vue 2.*
 - Popper.js 1.*
 
 ### Usage:
 
 ```javascript
 const
-	Vue = require('vue'),
+  Vue = require('vue'),
   VuePopper = require('vue-popper-component');
-	
+
 new Vue({
   el: '#app',
-  
+
   components: {
     'popper': VuePopper
   },
-  
+
   data: {
     showPopperParentVar: true
   }
@@ -34,15 +34,14 @@ new Vue({
 
 ```html
 <popper
-	:show-popper.sync="showPopperParentVar"
-	content="Some plain text message here"
-	placement="right"
-	close-button="Close me!">
-    
+  :show-popper="showPopperParentVar"
+  content="Some plain text message here"
+  placement="right"
+  v-on:close-popper="showPopperParentVar = false"
+  close-button="Close me!">
     <span @click.prevent="showPopperParentVar = !showPopperParentVar">
       ?
     </span>
-    
 </popper>
 ```
 
@@ -50,20 +49,21 @@ new Vue({
 
 ```html
 <popper
-  :show-popper.sync="showPopperParentVar"
+  :show-popper="showPopperParentVar"
   content="Lorem ipsum dolor"
   placement="top"
+  v-on:close-popper="showPopperParentVar = false"
   close-button="1">
-  
+
     <div slot="close-button">
       <i class="glyphicon glyphicon-remove"></i>
     </div>
-    
+
     <div slot="content">
       <h2><i class="glyphicon glyphicon-star"></i> <b>us</b> <i>on</i> <u>github</u>!</h2>
       <a @click.prevent="showPopperParentVar = false" href="#">Close this popover from the content!</a>
     </div>
-  
+
     <button class="btn btn-default" @click.prevent="showPopperParentVar = !showPopperParentVar">
       Click to open popover on the bottom
     </button>

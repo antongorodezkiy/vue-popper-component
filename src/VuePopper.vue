@@ -1,10 +1,14 @@
 <script>
+const Popper = require('popper.js')
 
-const
-  Popper = require('popper.js');
+var extend = function (to, from) {
+  for (const key in from) {
+    to[key] = from[key]
+  }
+  return to
+}
 
 module.exports = {
-
   props: {
     showPopper: {
       type: Boolean,
@@ -25,66 +29,67 @@ module.exports = {
       type: String,
       required: false,
       default: null
+    },
+    popperOptions: {
+      type: Object,
+      required: false,
+      default: {}
     }
   },
-
-  data() {
+  data () {
     return {
       popperId: null,
       popper: null
     }
   },
-
-  ready() {
+  mounted () {
     this.$nextTick(() => {
       if (this.showPopper) {
         this.initPopper();
       }
-    });
+    })
   },
-
   watch: {
-    showPopper(val, oldVal) {
+    showPopper (val, oldVal) {
       if (!!this.showPopper) {
         this.$nextTick(() => {
-          this.initPopper();
-        });
+          this.initPopper()
+        })
       }
     }
   },
-
   destroyed() {
-    this.destroyPopper();
+    this.destroyPopper()
   },
-
   methods: {
-    initPopper() {
-      this.popperId = this.uuid4();
+    initPopper () {
+      this.popperId = this.uuid4()
       this.popper = new Popper(
         this.$el,
         this.$el.querySelector('.vue-popper-component'),
-        {
+        extend({
           placement: this.placement || 'bottom',
           removeOnDestroy: true
-        }
-      );
+        }, this.popperOptions)
+      )
     },
-
+    closePopper () {
+      this.$emit('close-popper')
+    },
     destroyPopper() {
       if (this.popper) {
-        this.popper.destroy();
-        this.popper = null;
+        this.popper.destroy()
+        this.popper = null
       }
     },
-
-    uuid4() {
+    uuid4 () {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
         let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8)
         return v.toString(16)
       })
     }
   }
-};
+}
 </script>
 
 <template>
@@ -93,7 +98,7 @@ module.exports = {
     <div v-if="showPopper" :id="'vue-popper-'+popperId" class="vue-popper-component">
       <button
         v-if="closeButton"
-        @click="showPopper = false"
+        @click="closePopper()"
         :id="'vue-popper-'+popperId+'-close'"
         type="button"
         class="js-popper-close popper-close">

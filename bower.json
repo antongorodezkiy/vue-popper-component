@@ -6,7 +6,7 @@
   ],
   "version": "0.1.0",
   "dependencies": {
-    "vue": "1.*",
+    "vue": "^2.1.0",
     "popper.js": "1.*"
   },
   "description": "Vue.js component for Popper.js",
